@@ -1,0 +1,3 @@
+rootProject.name = "melo-network"
+include 'kernel'
+

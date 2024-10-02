@@ -1,0 +1,23 @@
+allprojects {
+    apply plugin: 'java'
+
+    group = 'org.github.ywoxys'
+    version = 'master'
+
+    compileJava {
+        options.encoding = 'UTF-8'
+    }
+
+    repositories {
+        mavenCentral()
+        mavenLocal()
+    }
+
+    dependencies {
+        def lombokVersion = '1.18.28'
+        def lombok = "org.projectlombok:lombok:$lombokVersion"
+
+        compileOnly lombok
+        annotationProcessor lombok
+    }
+}
