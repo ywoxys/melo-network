@@ -1,17 +1,26 @@
 package org.github.ywoxys.kernel.base.account;
 
 import lombok.Getter;
+import org.github.ywoxys.kernel.base.account.permission.Permission;
+import org.github.ywoxys.kernel.base.account.permission.enums.AssignedType;
+import org.github.ywoxys.kernel.base.account.permission.group.Rank;
+import org.github.ywoxys.kernel.base.account.permission.tag.Tag;
 
 import java.util.UUID;
 
 public class KernelAccount {
     @Getter
-    private String name;
+    private UUID playerId;
     @Getter
-    private UUID uuid;
+    private String playerName;
 
-    public KernelAccount(String name, UUID uuid) {
-        this.name = name;
-        this.uuid = uuid;
+    private Permission permission;
+
+    public KernelAccount(UUID playerId, String playerName) {
+        this.playerName = playerName;
+        this.playerId = playerId;
+
+        permission = new Permission(Rank.MEMBER, Tag.MEMBER, AssignedType.AUTO, "console", -1L);
+
     }
 }

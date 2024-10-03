@@ -19,15 +19,16 @@ targetCompatibility = JavaVersion.VERSION_1_8
 
 dependencies {
 
-    def mongodb = 'org.mongodb:mongodb-driver-sync:3.12.11'
+    def mongodb = 'org.mongodb:mongodb-driver:3.12.11'
     def redis = 'redis.clients:jedis:2.9.0'
     def apache = 'org.apache.commons:commons-lang3:3.12.0'
+    def gson = 'com.google.code.gson:gson:2.11.0'
     def paper = 'com.destroystokyo.paper:paper-api:1.8.8-R0.1-SNAPSHOT'
     def bungeecord = 'net.md-5:bungee-api:1.19-SNAPSHOT'
     def protocollib = 'com.comphenix.protocol:ProtocolLib:4.7.0'
     def lombok = 'org.projectlombok:lombok:1.18.28'
 
-    implementation(mongodb, redis, apache)
+    implementation(mongodb, redis, apache, gson)
     compileOnly (paper, bungeecord, protocollib, lombok)
     annotationProcessor lombok
     testImplementation platform('org.junit:junit-bom:5.10.0')
