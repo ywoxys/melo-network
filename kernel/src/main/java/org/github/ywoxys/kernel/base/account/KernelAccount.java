@@ -1,6 +1,8 @@
 package org.github.ywoxys.kernel.base.account;
 
 import lombok.Getter;
+import org.github.ywoxys.kernel.base.Base;
+import org.github.ywoxys.kernel.base.account.enums.AccountType;
 import org.github.ywoxys.kernel.base.account.permission.Permission;
 import org.github.ywoxys.kernel.base.account.permission.enums.AssignedType;
 import org.github.ywoxys.kernel.base.account.permission.group.Rank;
@@ -16,6 +18,8 @@ public class KernelAccount {
 
     private Permission permission;
 
+    private AccountType accountType = AccountType.NONE;
+
     public KernelAccount(UUID playerId, String playerName) {
         this.playerName = playerName;
         this.playerId = playerId;
@@ -23,4 +27,22 @@ public class KernelAccount {
         permission = new Permission(Rank.MEMBER, Tag.MEMBER, AssignedType.AUTO, "console", -1L);
 
     }
+
+    public void save() {
+        Base.getDataPlayer().save(this);
+    }
+
+    public void update(String field) {
+        Base.getDataPlayer().updateField(this, field);
+    }
+
+    //adicionar dep do spigot
+    //public Player toPlayer() {
+    //    return Core.getPlatform().getPlayerByUniqueId(uniqueId, Player.class);
+    //}
+
+    //adiconar dep do bungee
+    //public ProxiedPlayer toProxiedPlayer() {
+    //    return Core.getPlatform().getPlayerByUniqueId(uniqueId, ProxiedPlayer.class);
+    //}
 }

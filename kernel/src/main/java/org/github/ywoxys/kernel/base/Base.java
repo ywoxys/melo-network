@@ -3,7 +3,9 @@ package org.github.ywoxys.kernel.base;
 import com.google.gson.Gson;
 import com.google.gson.JsonParser;
 import lombok.Getter;
+import lombok.Setter;
 import org.github.ywoxys.kernel.base.storage.MongoStorage;
+import org.github.ywoxys.kernel.base.storage.data.player.PlayerData;
 
 public class Base {
 
@@ -15,4 +17,10 @@ public class Base {
 
     @Getter
     private static final JsonParser jsonParser = new JsonParser();
+
+    @Getter @Setter
+    private static PlayerData dataPlayer;
+
+    @Getter @Setter
+    private static Platform platform;
 }
