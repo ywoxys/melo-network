@@ -1,6 +1,8 @@
 package org.github.ywoxys.kernel.base.account;
 
 import lombok.Getter;
+import net.md_5.bungee.api.connection.ProxiedPlayer;
+import org.bukkit.entity.Player;
 import org.github.ywoxys.kernel.base.Base;
 import org.github.ywoxys.kernel.base.account.enums.AccountType;
 import org.github.ywoxys.kernel.base.account.permission.Permission;
@@ -29,20 +31,22 @@ public class KernelAccount {
     }
 
     public void save() {
-        Base.getDataPlayer().save(this);
+        Base.getPlayerData().save(this);
     }
 
     public void update(String field) {
-        Base.getDataPlayer().updateField(this, field);
+        Base.getPlayerData().updateField(this, field);
     }
 
-    //adicionar dep do spigot
-    //public Player toPlayer() {
-    //    return Core.getPlatform().getPlayerByUniqueId(uniqueId, Player.class);
-    //}
+    public Player toPlayer() {
+        return Base.getPlatform().getPlayerByUniqueId(playerId, Player.class);
+    }
 
-    //adiconar dep do bungee
-    //public ProxiedPlayer toProxiedPlayer() {
-    //    return Core.getPlatform().getPlayerByUniqueId(uniqueId, ProxiedPlayer.class);
-    //}
+    public ProxiedPlayer toProxiedPlayer() {
+        return Base.getPlatform().getPlayerByUniqueId(playerId, ProxiedPlayer.class);
+    }
+
+    public boolean hasGroupPermission(Rank rank) {
+        return permission.getRank().ordinal() <= rank.ordinal();
+    }
 }

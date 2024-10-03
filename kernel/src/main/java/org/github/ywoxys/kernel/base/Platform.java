@@ -1,5 +1,7 @@
 package org.github.ywoxys.kernel.base;
 
+import net.md_5.bungee.api.chat.BaseComponent;
+
 import java.util.UUID;
 
 public interface Platform {
@@ -69,12 +71,20 @@ public interface Platform {
     void sendMessage(UUID uniqueId, String message);
 
     /**
-     * Envia uma mensagem composta em formato String[] para o jogador identificado por UUID.
+     * Envia uma mensagem em formato BaseComponent para o jogador identificado por UUID.
      *
      * @param uniqueId UUID do jogador.
-     * @param messages Array de mensagens a serem enviadas.
+     * @param message Mensagem a ser enviada.
      */
-    void sendMessage(UUID uniqueId, String[] messages);
+    void sendMessage(UUID uniqueId, BaseComponent message);
+
+    /**
+     * Envia uma mensagem composta (array de BaseComponent) para o jogador identificado por UUID.
+     *
+     * @param uniqueId UUID do jogador.
+     * @param message Mensagem a ser enviada.
+     */
+    void sendMessage(UUID uniqueId, BaseComponent[] message);
 
     /**
      * Executa uma tarefa de forma assíncrona.

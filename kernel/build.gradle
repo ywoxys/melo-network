@@ -12,6 +12,7 @@ repositories {
     maven { url 'https://hub.spigotmc.org/nexus/repository/public/' }
     maven { url 'https://jitpack.io' }
     maven { url 'https://oss.sonatype.org/content/repositories/releases/' }
+    maven { url 'https://repo.papermc.io/repository/maven-public/' }
 }
 
 sourceCompatibility = JavaVersion.VERSION_1_8
@@ -23,13 +24,11 @@ dependencies {
     def redis = 'redis.clients:jedis:2.9.0'
     def apache = 'org.apache.commons:commons-lang3:3.12.0'
     def gson = 'com.google.code.gson:gson:2.11.0'
-    def paper = 'com.destroystokyo.paper:paper-api:1.8.8-R0.1-SNAPSHOT'
-    def bungeecord = 'net.md-5:bungee-api:1.19-SNAPSHOT'
-    def protocollib = 'com.comphenix.protocol:ProtocolLib:4.7.0'
     def lombok = 'org.projectlombok:lombok:1.18.28'
 
+    compileOnly fileTree(dir: 'D:/melo-network/dep/', include: ['*.jar'])
     implementation(mongodb, redis, apache, gson)
-    compileOnly (paper, bungeecord, protocollib, lombok)
+    compileOnly (lombok)
     annotationProcessor lombok
     testImplementation platform('org.junit:junit-bom:5.10.0')
     testImplementation 'org.junit.jupiter:junit-jupiter'

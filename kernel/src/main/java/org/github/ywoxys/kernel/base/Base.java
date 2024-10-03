@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 import org.github.ywoxys.kernel.base.storage.MongoStorage;
 import org.github.ywoxys.kernel.base.storage.data.player.PlayerData;
+import org.github.ywoxys.kernel.base.storage.data.server.ServerData;
 
 public class Base {
 
@@ -19,7 +20,10 @@ public class Base {
     private static final JsonParser jsonParser = new JsonParser();
 
     @Getter @Setter
-    private static PlayerData dataPlayer;
+    private static PlayerData playerData;
+    
+    @Getter @Setter
+    private static ServerData serverData;
 
     @Getter @Setter
     private static Platform platform;
