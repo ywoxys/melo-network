@@ -8,6 +8,8 @@ import org.github.ywoxys.kernel.base.storage.MongoStorage;
 import org.github.ywoxys.kernel.base.storage.data.player.PlayerData;
 import org.github.ywoxys.kernel.base.storage.data.server.ServerData;
 
+import java.util.logging.Logger;
+
 public class Base {
 
     @Getter
@@ -18,6 +20,9 @@ public class Base {
 
     @Getter
     private static final JsonParser jsonParser = new JsonParser();
+
+    @Getter @Setter
+    private static Logger logger;
 
     @Getter @Setter
     private static PlayerData playerData;
