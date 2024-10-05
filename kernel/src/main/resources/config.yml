@@ -1,0 +1,31 @@
+config:
+  motds:
+    header: '           &b&lMELO MC&f ➟ &7(1.8 - 1.20)                        '
+    footer:
+      - 'Bem-vindo ao servidor!'
+      - 'Aproveite sua estadia!'
+      - 'Entre em contato com a equipe para suporte.'
+    maintenance: '&cServidores fechados apenas para equipe!'
+    
+database:
+  mongo:
+    uri: 'mongodb://localhost:27017'
+  redis:
+    address: 127.0.0.1
+    port: 6379
+    password: melomc0101
+      
+servers:
+  proxy:
+    display: "Connection Server"
+    name: "connection"
+    address: 0.0.0.0
+    port: 25565
+    maxPlayers: 100
+  lobby:
+    display: "Lobby Principal #${lobbyId}"
+    name: "lobby-${lobbyId}"
+    adress: 0.0.0.0
+    port: 25566
+    maxPlayers: 100
+    
